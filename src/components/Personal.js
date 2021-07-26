@@ -1,6 +1,6 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,9 +11,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Personal = (props) => {
+export default function Personal() {
   const classes = useStyles();
-  const { personalDetails } = props;
+
+  const [personalDetails] = useState({
+    usrFirstName: '',
+    usrLastName: '',
+    usrJobTitle: '',
+    usrEmail: '',
+    usrPhone: '',
+    usrGitHub: '',
+    usrLinkedIn: '',
+  });
+
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
@@ -22,7 +32,7 @@ const Personal = (props) => {
         type="text"
         name="usrFirstName"
         label="First Name"
-        value={personalDetails.firstName}
+        defaultValue={personalDetails.usrFirstName}
       />
       <TextField
         variant="outlined"
@@ -30,7 +40,15 @@ const Personal = (props) => {
         type="text"
         name="usrLastName"
         label="Last Name"
-        value={personalDetails.firstName}
+        defaultValue={personalDetails.usrLastName}
+      />
+      <TextField
+        variant="outlined"
+        id="usrJobTitle"
+        type="text"
+        name="usrJobTitle"
+        label="Job Title"
+        defaultValue={personalDetails.usrJobTitle}
       />
       <TextField
         variant="outlined"
@@ -38,7 +56,7 @@ const Personal = (props) => {
         type="text"
         name="usrEmail"
         label="Email Address"
-        value={personalDetails.firstName}
+        defaultValue={personalDetails.usrEmail}
       />
       <TextField
         variant="outlined"
@@ -46,7 +64,7 @@ const Personal = (props) => {
         type="text"
         name="usrPhone"
         label="Phone Number"
-        value={personalDetails.firstName}
+        defaultValue={personalDetails.usrPhone}
       />
       <TextField
         variant="outlined"
@@ -54,7 +72,7 @@ const Personal = (props) => {
         type="text"
         name="usrGitHub"
         label="GitHub"
-        value={personalDetails.firstName}
+        defaultValue={personalDetails.usrGitHub}
       />
       <TextField
         variant="outlined"
@@ -62,10 +80,8 @@ const Personal = (props) => {
         type="text"
         name="usrLinkedIn"
         label="LinkedIn"
-        value={personalDetails.firstName}
+        defaultValue={personalDetails.usrLinkedIn}
       />
     </form>
   );
-};
-
-export default Personal;
+}

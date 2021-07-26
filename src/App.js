@@ -29,7 +29,7 @@ class App extends Component {
       <>
         <div> hello? </div>
 
-        <Personal personalDetails={personalDetails}/>
+        <Personal />
       </>
     );
   }
