@@ -8,24 +8,28 @@ class App extends Component {
     super();
 
     this.state = {
-      cvDetails: {
-        firstName: 'First Name',
+      personalDetails: {
+        firstName: '',
+        lastName: '',
       },
     };
   }
 
-  // handleChange = (e) => {
-  //   this.setState({
-  //     firstName: e.target.value,
-  //   });
-  // };
+  handleChange = (e) => {
+    this.setState({
+      firstName: e.target.value,
+      lastName: e.target.value,
+    });
+  };
 
   render() {
+    const { personalDetails } = this.state;
+
     return (
       <>
         <div> hello? </div>
 
-        <Personal />
+        <Personal personalDetails={personalDetails}/>
       </>
     );
   }
