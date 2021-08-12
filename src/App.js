@@ -1,35 +1,27 @@
 // App.js
 
 import React, { Component } from 'react';
-import Personal from './components/Personal';
+import Personal from './components/personal/Personal';
+import CVDisplay from './components/CVDisplay';
 
 class App extends Component {
   constructor() {
     super();
 
-    this.state = {
-      personalDetails: {
-        firstName: '',
-        lastName: '',
-      },
-    };
+    this.state = {};
   }
 
   handleChange = (e) => {
-    this.setState({
-      firstName: e.target.value,
-      lastName: e.target.value,
-    });
+    this.setState({});
   };
 
   render() {
-    const { personalDetails } = this.state;
-
     return (
       <>
         <div> hello? </div>
 
         <Personal />
+        <CVDisplay />
       </>
     );
   }
